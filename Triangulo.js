@@ -1,4 +1,5 @@
 class Triangulo {
+
   #tamanho = 0;
   #caracter = "*";
   #matriz = [];
@@ -11,19 +12,18 @@ class Triangulo {
 
   print() {
     this.#matriz.forEach((linha) => console.log(linha.join("")));
-    console.log('');
-    
+    console.log("");
   }
 
   #gerarMatriz() {
     if (this.#tamanho < 1) return;
-    this.#matriz = Array(this.#tamanho);
     const totalItensDaBase = this.#getTotalCaracteresPelaAltura(this.#tamanho);
     for (let alturaAtual = 1; alturaAtual <= this.#tamanho; alturaAtual++) {
-      this.#matriz[alturaAtual - 1] = this.#getCaracteresDaLinha(
+      const caracteresDaLinha = this.#getCaracteresDaLinha(
         alturaAtual,
         totalItensDaBase
       );
+      this.#matriz.push(caracteresDaLinha)
     }
   }
 
@@ -47,4 +47,4 @@ class Triangulo {
   }
 }
 
-exports.Triangulo = Triangulo
+exports.Triangulo = Triangulo;
