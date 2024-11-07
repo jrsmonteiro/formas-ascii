@@ -17,14 +17,13 @@ class TrianguloAninhado {
     const dimensaoEixoX = this.#getDimensaoEixoX(this.#quantidade)
     const dimensaoEixoY = this.#getDimensaoEixoY(this.#quantidade)
     this.#matriz = this.#getMatrizVazia(dimensaoEixoX, dimensaoEixoY);
-    console.log(this.#matriz)
     const indiceCentral = this.#getIndiceCentral(this.#quantidade);
     let indiceLinhaDaMatriz = 0;
     let numTriangulo = this.#quantidade;
-    while (numTriangulo >= 1) {
+    while (numTriangulo > 0) {
       const totalDeBarras = this.#getDimensaoEixoY(numTriangulo);
 
-      // Barras
+      // Barras (laterais)
       let numBarra = 1;
       let indiceLinhaDaBarra = indiceLinhaDaMatriz;
       let indiceBarraDaEsquerda = indiceCentral;
@@ -36,6 +35,15 @@ class TrianguloAninhado {
         indiceBarraDaEsquerda--;
         indiceBarraDaDireita++;
         numBarra++;
+      }
+
+      // Underlines (base)
+      let xUnderline = indiceBarraDaEsquerda + 2
+      let yUnderline = indiceLinhaDaBarra - 1
+      let xLimiteUnderline = indiceBarraDaDireita - 1
+      while (xUnderline < xLimiteUnderline) {
+        this.#matriz[yUnderline][xUnderline] = '_'
+        xUnderline++
       }
 
       numTriangulo--;
@@ -56,7 +64,7 @@ class TrianguloAninhado {
   }
 
   #getDimensaoEixoY(quantidade) {
-    return quantidade * 4 - 2;    
+    return quantidade * 3 - 1;    
   }
 
   #getIndiceCentral(quantidade) {

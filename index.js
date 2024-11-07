@@ -5,15 +5,17 @@ const { TrianguloInvertido } = require("./TrianguloInvertido")
 const { Losango } = require("./Losango")
 const { LosangoAninhado } = require("./LosangoAninhado")
 const { TrianguloAninhado } = require("./TrianguloAninhado")
+const { LosangoEmEspiral } = require("./LosangoEmEspiral")
+const { TrianguloEmEspiral } = require("./TrianguloEmEspiral")
 
 function gerarTriangulos(tamanhoInicial, caracter = "*") {
-    for (let tamanho = tamanhoInicial; tamanho >= 1 ; tamanho--) {
+    for (let tamanho = tamanhoInicial; tamanho >= 2 ; tamanho--) {
         new Triangulo(tamanho, caracter).print()    
     }
 }
 
 function gerarTriangulosInvertidos(tamanhoInicial, caracter = "*") {
-    for (let tamanho = tamanhoInicial; tamanho >= 1 ; tamanho--) {
+    for (let tamanho = tamanhoInicial; tamanho >= 2 ; tamanho--) {
         new TrianguloInvertido(tamanho, caracter).print()    
     }
 }
@@ -26,12 +28,12 @@ function gerarQuadrados(tamanhoInicial, caracter = "*") {
 
 function gerarRetangulos(tamanhoInicial, caracter = "*") {
     for (let tamanho = tamanhoInicial; tamanho >= 1 ; tamanho--) {
-        new Retangulo(tamanho, tamanho * 2, caracter).print()    
+        new Retangulo(tamanho * 2, tamanho, caracter).print()    
     }
 }
 
 function gerarLosangos(tamanhoInicial, caracter = "*") {
-    for (let tamanho = tamanhoInicial; tamanho >= 1 ; tamanho--) {
+    for (let tamanho = tamanhoInicial; tamanho >= 2 ; tamanho--) {
         new Losango(tamanho, caracter).print()    
     }
 }
@@ -48,10 +50,24 @@ function gerarTriangulosAninhados(quantidadeIncial) {
     }
 }
 
-// gerarTriangulos(10, '*')
-// gerarTriangulosInvertidos(10, '*')
-// gerarQuadrados(10, '*')
-// gerarRetangulos(10, '*')
-// gerarLosangos(10, '*')
-// gerarLosangosAninhados(10)
-gerarTriangulosAninhados(2)
+function gerarLosangosEmEspiral(quantidadeIncial) {
+    for (let quantidade = quantidadeIncial; quantidade >= 1 ; quantidade--) {
+        new LosangoEmEspiral(quantidade).print()    
+    }
+}
+
+function gerarTriangulosEmEspiral(quantidadeIncial) {
+    for (let quantidade = quantidadeIncial; quantidade >= 1 ; quantidade--) {
+        new TrianguloEmEspiral(quantidade).print()    
+    }
+}
+
+// gerarTriangulos(7, '*')
+// gerarTriangulosInvertidos(7, '*')
+// gerarQuadrados(7, '#')
+// gerarRetangulos(7, '*')
+// gerarLosangos(6, '*')
+// gerarLosangosAninhados(4)
+// gerarTriangulosAninhados(4)
+// gerarLosangosEmEspiral(4)
+gerarTriangulosEmEspiral(5)
