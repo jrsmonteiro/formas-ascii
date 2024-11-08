@@ -7,6 +7,7 @@ const { LosangoAninhado } = require("./LosangoAninhado")
 const { TrianguloAninhado } = require("./TrianguloAninhado")
 const { LosangoEmEspiral } = require("./LosangoEmEspiral")
 const { TrianguloEmEspiral } = require("./TrianguloEmEspiral")
+const { Matrix } = require("./Matrix")
 
 function gerarTriangulos(tamanhoInicial, caracter = "*") {
     for (let tamanho = tamanhoInicial; tamanho >= 2 ; tamanho--) {
@@ -62,6 +63,10 @@ function gerarTriangulosEmEspiral(quantidadeIncial) {
     }
 }
 
+function gerarMatrix() {
+    new Matrix().print()    
+}
+
 // gerarTriangulos(7, '*')
 // gerarTriangulosInvertidos(7, '*')
 // gerarQuadrados(7, '#')
@@ -70,4 +75,5 @@ function gerarTriangulosEmEspiral(quantidadeIncial) {
 // gerarLosangosAninhados(4)
 // gerarTriangulosAninhados(4)
 // gerarLosangosEmEspiral(4)
-gerarTriangulosEmEspiral(5)
+// gerarTriangulosEmEspiral(5)
+gerarMatrix()
